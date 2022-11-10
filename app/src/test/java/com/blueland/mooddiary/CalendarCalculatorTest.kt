@@ -25,4 +25,12 @@ class CalendarCalculatorTest {
         assertEquals(calculator.getFirstWeekdayOfMonth("2022-11-30"), 3)
         assertEquals(calculator.getFirstWeekdayOfMonth("2023-01-03"), 1)
     }
+
+    @Test
+    fun getDaysCountOfMonth() {
+        assertEquals(calculator.getDaysCountOfMonth("2022-10-06"), 31)
+        assertEquals(calculator.getDaysCountOfMonth("2022-11-06"), 30)
+        assertEquals(calculator.getDaysCountOfMonth("2022-11-30"), 30)
+        assertEquals(calculator.getDaysCountOfMonth("2023-01-03"), 31)
+    }
 }
