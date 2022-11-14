@@ -33,4 +33,14 @@ class CalendarCalculatorTest {
         assertEquals(calculator.getDaysCountOfMonth("2022-11-30"), 30)
         assertEquals(calculator.getDaysCountOfMonth("2023-01-03"), 31)
     }
+
+    @Test
+    fun getFirstIndexForDrawing() {
+        assertEquals(calculator.getFirstIndexForDrawing(false, 1), 6) // 시작 요일 - 월, 요일 - 일
+        assertEquals(calculator.getFirstIndexForDrawing(false, 2), 0) // 시작 요일 - 월, 요일 - 월
+        assertEquals(calculator.getFirstIndexForDrawing(false, 7), 5) // 시작 요일 - 월, 요일 - 토
+        assertEquals(calculator.getFirstIndexForDrawing(true, 1), 0) // 시작 요일 - 일, 요일 - 일
+        assertEquals(calculator.getFirstIndexForDrawing(true, 2), 1) // 시작 요일 - 일, 요일 - 월
+        assertEquals(calculator.getFirstIndexForDrawing(true, 7), 6) // 시작 요일 - 일, 요일 - 토
+    }
 }
