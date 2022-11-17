@@ -36,11 +36,19 @@ class CalendarCalculatorTest {
 
     @Test
     fun getFirstIndexForDrawing() {
-        assertEquals(calculator.getFirstIndexForDrawing(false, 1), 6) // 시작 요일 - 월, 요일 - 일
-        assertEquals(calculator.getFirstIndexForDrawing(false, 2), 0) // 시작 요일 - 월, 요일 - 월
-        assertEquals(calculator.getFirstIndexForDrawing(false, 7), 5) // 시작 요일 - 월, 요일 - 토
         assertEquals(calculator.getFirstIndexForDrawing(true, 1), 0) // 시작 요일 - 일, 요일 - 일
         assertEquals(calculator.getFirstIndexForDrawing(true, 2), 1) // 시작 요일 - 일, 요일 - 월
         assertEquals(calculator.getFirstIndexForDrawing(true, 7), 6) // 시작 요일 - 일, 요일 - 토
+        assertEquals(calculator.getFirstIndexForDrawing(false, 1), 6) // 시작 요일 - 월, 요일 - 일
+        assertEquals(calculator.getFirstIndexForDrawing(false, 2), 0) // 시작 요일 - 월, 요일 - 월
+        assertEquals(calculator.getFirstIndexForDrawing(false, 7), 5) // 시작 요일 - 월, 요일 - 토
+    }
+
+    @Test
+    fun getIndexForDrawing() {
+        assertEquals(calculator.getIndexForDrawing(true, "2022-11-01"), 2) // 시작 요일 - 일, 요일 - 화
+        assertEquals(calculator.getIndexForDrawing(true, "2022-11-14"), 15) // 시작 요일 - 일, 요일 - 월
+        assertEquals(calculator.getIndexForDrawing(false, "2022-11-01"), 1) // 시작 요일 - 월, 요일 - 화
+        assertEquals(calculator.getIndexForDrawing(false, "2022-11-14"), 14) // 시작 요일 - 월, 요일 - 월
     }
 }
